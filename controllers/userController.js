@@ -40,7 +40,8 @@ export function loginUser(req,res){
                         lastName : user.lastName,
                         email : user.email,
                         role : user.role,
-                        profilePicture : user.profilePicture
+                        profilePicture : user.profilePicture,
+                        phone : user.phone
                     },process.env.JWT_SECRETE);
                     res.json({message : "Login successful", token : token});
                 }else{
@@ -50,4 +51,28 @@ export function loginUser(req,res){
             }
         }
     )
+}
+
+export function isItAdmin(req){
+    let isAdmin = false;
+
+    if(req.user != null){
+        if(req.user.role == "admin"){
+            isAdmin = true;
+        }
+    }
+
+    return isAdmin;
+}
+
+export function isItCustomer(req){
+    let iscustomer = false;
+
+    if(req.user != null){
+        if(req.user.role == "customer"){
+            iscustomer = true;
+        }
+    }
+
+    return iscustomer;
 }
