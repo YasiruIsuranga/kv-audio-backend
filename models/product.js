@@ -14,12 +14,12 @@ const productSchema = new mongoose.Schema({
         type : Number,
         required : true
     },
-    catagory : {
+    category : {
         type : String,
         required : true,
         default : "uncategorized"
     },
-    demensions : {
+    dimensions : {
         type : String,
         required : true
     },

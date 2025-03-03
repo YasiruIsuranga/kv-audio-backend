@@ -85,7 +85,7 @@ export async function deleteProduct(req,res){
         if(isItAdmin(req)){
             const key = req.params.key;
 
-            await Product.deleteOne({key:key},data);
+            await Product.deleteOne({key:key});
 
             res.json({
                 message : "Product deleted successfully"
